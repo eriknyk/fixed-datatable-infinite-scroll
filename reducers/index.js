@@ -8,8 +8,8 @@ const initialState = {
   isLoadingCompanies: false,
   loadCompaniesError: null,
   companies: [],
-  companiesPageSize: 1,
-  companiesSize: 10
+  companiesPage: 1,
+  companiesPageSize: 25
 };
 
 export default function companiesReducer(state = initialState, action) {

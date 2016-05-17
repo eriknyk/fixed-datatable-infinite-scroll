@@ -15,22 +15,21 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    this.page = 1;
-    this.lastIndex = 0;
+    this.lastIndex = 0; // TODO improve this hack
   }
 
   _getMyDataForIndex (rowIndex, field) {
     if (typeof this.props.companies[rowIndex] != 'undefined') {
 
-      this.lastIndex = rowIndex > this.lastIndex ? rowIndex : this.lastIndex;
+      this.lastIndex = rowIndex > this.lastIndex ? rowIndex : this.lastIndex; // TODO improve this hack
       return this.props.companies[rowIndex][field];
     }
 
-    if (!this.props.isLoadingCompanies && rowIndex > this.lastIndex) {
-      this.lastIndex = this.lastIndex + 19;
+    if (!this.props.isLoadingCompanies && rowIndex > this.lastIndex/*TODO improve this hack*/) {
+      this.lastIndex = this.lastIndex + (this.props.companiesPageSize - 1);
 
       setTimeout(() => {
-        this.props.handleLoadCompanies(this.props.companiesPage, 25);
+        this.props.handleLoadCompanies(this.props.companiesPage, this.props.companiesPageSize);
       }, 500)
     }
 
