@@ -5,7 +5,7 @@ var Express = require('express')
 var path = require('path')
 
 var app = new Express()
-var port = process.env.NODE_PORT || 3000;
+var port = process.env.PORT || 3000;
 
 console.log(`> process.env.NODE_ENV=${process.env.NODE_ENV}`);
 
