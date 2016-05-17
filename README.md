@@ -11,7 +11,7 @@ The idea is to show howto implement an ISDT using fixed-datatable, It could be n
 Best Regards.
 
 
-[Working Demo](https://infinite-scroll-datatable.herokuapp.com/)
+[Working Demo](http://infinite-scroll-datatable.herokuapp.com/)
 
 ###RUN IT
 
