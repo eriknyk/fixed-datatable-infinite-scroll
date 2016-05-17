@@ -47,7 +47,7 @@ class App extends Component {
           (isLoadingCompanies && companies.length == 0)?
           <b>Loading...</b>:
           <div>
-            <h1><a href="https://facebook.github.io/fixed-data-table/">fixed-datatable</a> / <a href="">InfiniteScrollTable</a></h1>
+            <h1><a href="https://facebook.github.io/fixed-data-table/">fixed-datatable</a> / <a href="https://github.com/eriknyk/fixed-datatable-infinite-scroll">InfiniteScrollTable</a></h1>
             <InfiniteScrollTable data={{}} rowsCount={200} _getMyDataForIndex={this._getMyDataForIndex.bind(this)}/>
           </div>
         }
