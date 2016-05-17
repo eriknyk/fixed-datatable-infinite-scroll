@@ -17,3 +17,11 @@ Best Regards.
 $ npm install
 $ npm start
 ```
+
+###DEV MODE
+Live Edit (Hot Module Replacement)
+
+```
+$ npm install
+$ npm run dev
+```

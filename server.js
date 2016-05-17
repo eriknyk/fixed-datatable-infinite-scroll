@@ -1,14 +1,24 @@
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config')
+var Express = require('express')
+var path = require('path')
 
-var app = new (require('express'))()
-var port = process.env.NODE_ENV || 3000;
+var app = new Express()
+var port = process.env.NODE_PORT || 3000;
 
-var compiler = webpack(config)
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
+console.log(`> process.env.NODE_ENV=${process.env.NODE_ENV}`);
+
+if (process.env.NODE_ENV == 'development') {
+  var config = require('./webpack.config')
+  var compiler = webpack(config)
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+  app.use(webpackHotMiddleware(compiler))
+}
+
+app.use('/static', Express.static(path.resolve(__dirname, 'dist'), {
+  maxAge: 365 * 24 * 60 * 60
+}));
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/index.html')
